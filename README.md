@@ -1,1 +1,1 @@
-# widgets-spa-go-api
+# go-rest-api
