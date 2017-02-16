@@ -21,6 +21,9 @@ func main() {
 	router.GET("/", userController.Index)
 
 	// Get a user resource
+	router.GET("/users", userController.GetUsers)
+
+	// Get a user resource
 	router.GET("/user/:id", userController.GetUser)
 
 	// Create a new user

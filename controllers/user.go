@@ -29,6 +29,26 @@ func (userController UserController) Index(w http.ResponseWriter, r *http.Reques
 }
 
 // GetUser retrieves an individual user resource
+func (userController UserController) GetUsers(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+
+	results := []models.User{}
+
+	// Fetch usernil
+	if err := userController.session.DB("widgets-spa-go-api").C("users").Find(nil).All(&results); err != nil {
+		w.WriteHeader(404)
+		return
+	}
+
+	// Marshal provided interface into JSON structure
+	usersJSON, _ := json.Marshal(results)
+
+	// Write content-type, statuscode, payload
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(200)
+	fmt.Fprintf(w, "%s", usersJSON)
+}
+
+// GetUser retrieves an individual user resource
 func (userController UserController) GetUser(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 	// Grab id
 	id := p.ByName("id")
