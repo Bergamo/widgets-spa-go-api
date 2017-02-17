@@ -5,7 +5,6 @@ import (
 	"time"
 
 	jwt "github.com/dgrijalva/jwt-go"
-	"github.com/julienschmidt/httprouter"
 )
 
 type (
@@ -21,7 +20,7 @@ func NewTokenController(mySigningKey []byte) *TokenController {
 }
 
 // GetTokenHandler retrieves a token
-func (tokenController TokenController) GetTokenHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+func (tokenController TokenController) GetTokenHandler(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	/* Create the token */
 	token := jwt.New(jwt.SigningMethodHS256)

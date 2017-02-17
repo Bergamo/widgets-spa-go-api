@@ -4,12 +4,13 @@ import (
 	"github.com/Bergamo/widgets-spa-go-api/controllers"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-    "gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2"
 )
 
+// SetUserRoutes set user routes
 func SetUserRoutes(router *mux.Router) *mux.Router {
 
-    // Get a UserController instance
+	// Get a UserController instance
 	userController := controllers.NewUserController(getSession())
 
 	router.Handle("/",
@@ -18,31 +19,31 @@ func SetUserRoutes(router *mux.Router) *mux.Router {
 			negroni.HandlerFunc(userController.Index),
 		)).Methods("GET")
 
-    router.Handle("/users",
+	router.Handle("/users",
 		negroni.New(
 			//negroni.HandlerFunc(authentication.RequireTokenAuthentication),
 			negroni.HandlerFunc(userController.GetUsers),
 		)).Methods("GET")
 
-    router.Handle("/users/{id}",
+	router.Handle("/users/{id}",
 		negroni.New(
 			//negroni.HandlerFunc(authentication.RequireTokenAuthentication),
 			negroni.HandlerFunc(userController.GetUser),
 		)).Methods("GET")
 
-    router.Handle("/users",
+	router.Handle("/users",
 		negroni.New(
 			//negroni.HandlerFunc(authentication.RequireTokenAuthentication),
 			negroni.HandlerFunc(userController.CreateUser),
 		)).Methods("POST")
 
-    router.Handle("/users/{id}",
+	router.Handle("/users/{id}",
 		negroni.New(
 			//negroni.HandlerFunc(authentication.RequireTokenAuthentication),
 			negroni.HandlerFunc(userController.UpdateUser),
 		)).Methods("PUT")
 
-    router.Handle("/users/{id}",
+	router.Handle("/users/{id}",
 		negroni.New(
 			//negroni.HandlerFunc(authentication.RequireTokenAuthentication),
 			negroni.HandlerFunc(userController.RemoveUser),
