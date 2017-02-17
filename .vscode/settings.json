@@ -1,0 +1,5 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+     "http.proxy": "http://gbergamo:South9138@proxypac:8080/",
+     "http.proxyStrictSSL": false
+}
