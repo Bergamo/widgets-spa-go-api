@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"github.com/gorilla/mux"
+
 	"github.com/Bergamo/widgets-spa-go-api/models"
+	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -27,7 +28,7 @@ func (userController UserController) Index(w http.ResponseWriter, r *http.Reques
 	w.Write([]byte("Hello, World!"))
 }
 
-// GetUser retrieves an individual user resource
+// GetUsers retrieves users
 func (userController UserController) GetUsers(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	results := []models.User{}
@@ -104,7 +105,7 @@ func (userController UserController) CreateUser(w http.ResponseWriter, r *http.R
 	fmt.Fprintf(w, "%s", userJSON)
 }
 
-// CreateUser creates a new user resource
+// UpdateUser updates user
 func (userController UserController) UpdateUser(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 	// Stub an user to be populated from the body
 	user := models.User{}
@@ -112,7 +113,7 @@ func (userController UserController) UpdateUser(w http.ResponseWriter, r *http.R
 	// Grab id
 	vars := mux.Vars(r)
 	id := vars["id"]
-	
+
 	// Verify id is ObjectId, otherwise bail
 	if !bson.IsObjectIdHex(id) {
 		w.WriteHeader(404)
@@ -131,7 +132,7 @@ func (userController UserController) UpdateUser(w http.ResponseWriter, r *http.R
 	oid := bson.ObjectIdHex(id)
 
 	// Write the user to mongo
-	if err := userController.session.DB("widgets-spa-go-api").C("users").Update(oid, &user); err != nil {
+	if err := userController.session.DB("widgets-spa-go-api").C("users").UpdateId(oid, &user); err != nil {
 		w.WriteHeader(404)
 		return
 	}
@@ -147,7 +148,7 @@ func (userController UserController) UpdateUser(w http.ResponseWriter, r *http.R
 
 // RemoveUser removes an existing user resource
 func (userController UserController) RemoveUser(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	
+
 	// Grab id
 	vars := mux.Vars(r)
 	id := vars["id"]
