@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"github.com/Bergamo/widgets-spa-go-api/models"
+	"github.com/Bergamo/widgets-spa-go-api/common"
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -33,7 +34,7 @@ func (userController UserController) GetUsers(w http.ResponseWriter, r *http.Req
 	results := []models.User{}
 
 	// Fetch usernil
-	if err := userController.session.DB("widgets-spa-go-api").C("users").Find(nil).All(&results); err != nil {
+	if err := userController.session.DB(common.AppConfig.Database).C("users").Find(nil).All(&results); err != nil {
 		w.WriteHeader(404)
 		return
 	}
@@ -67,7 +68,7 @@ func (userController UserController) GetUser(w http.ResponseWriter, r *http.Requ
 	user := models.User{}
 
 	// Fetch user
-	if err := userController.session.DB("widgets-spa-go-api").C("users").FindId(oid).One(&user); err != nil {
+	if err := userController.session.DB(common.AppConfig.Database).C("users").FindId(oid).One(&user); err != nil {
 		w.WriteHeader(404)
 		return
 	}
@@ -93,7 +94,7 @@ func (userController UserController) CreateUser(w http.ResponseWriter, r *http.R
 	user.Id = bson.NewObjectId()
 
 	// Write the user to mongo
-	userController.session.DB("widgets-spa-go-api").C("users").Insert(user)
+	userController.session.DB(common.AppConfig.Database).C("users").Insert(user)
 
 	// Marshal provided interface into JSON structure
 	userJSON, _ := json.Marshal(user)
@@ -131,7 +132,7 @@ func (userController UserController) UpdateUser(w http.ResponseWriter, r *http.R
 	oid := bson.ObjectIdHex(id)
 
 	// Write the user to mongo
-	if err := userController.session.DB("widgets-spa-go-api").C("users").UpdateId(oid, &user); err != nil {
+	if err := userController.session.DB(common.AppConfig.Database).C("users").UpdateId(oid, &user); err != nil {
 		w.WriteHeader(404)
 		return
 	}
@@ -162,7 +163,7 @@ func (userController UserController) RemoveUser(w http.ResponseWriter, r *http.R
 	oid := bson.ObjectIdHex(id)
 
 	// Remove user
-	if err := userController.session.DB("widgets-spa-go-api").C("users").RemoveId(oid); err != nil {
+	if err := userController.session.DB(common.AppConfig.Database).C("users").RemoveId(oid); err != nil {
 		w.WriteHeader(404)
 		return
 	}

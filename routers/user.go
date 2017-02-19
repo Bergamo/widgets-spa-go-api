@@ -21,7 +21,7 @@ func SetUserRoutes(router *mux.Router) *mux.Router {
 
 	router.Handle("/users",
 		negroni.New(
-			negroni.HandlerFunc(tokenController.ValidateTokenHandler),
+			//negroni.HandlerFunc(tokenController.ValidateTokenHandler),
 			negroni.HandlerFunc(userController.GetUsers),
 		)).Methods("GET")
 
