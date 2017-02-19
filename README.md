@@ -20,32 +20,41 @@ $ ./widgets-spa-go-api
 # GET TOKEN
 - Makes a basic GET request to get a token
 
+```sh
 $ curl -http://localhost:3000/get-token
+```
 
 # GET USERS
-
+```sh
 $ curl http://localhost:3000/users -H 'Authorization: Bearer API_TOKEN'
+```
 
 # GET USER BY ID
-
+```sh
 $ curl http://localhost:3000/users/{id} -H 'Authorization: Bearer API_TOKEN'
+```
 
 # GET WIDGETS
-
+```sh
 $ curl http://localhost:3000/widgets -H 'Authorization: Bearer API_TOKEN'
+```
 
 # GET WIDGET BY ID
-
+```sh
 $ curl http://localhost:3000/widgets/{id} -H 'Authorization: Bearer API_TOKEN'
+```
 
 # CREATE WIDGET
-
+```sh
 $ curl -i -X POST "Content-Type:application/json" http://localhost:3000/widgets -d '{"name":"teste post","color":"magenta","price":"3.80","inventory":23,"melts":true}' -H 'Authorization: Bearer API_TOKEN'
+```
 
 # UPDATE WIDGET
-
+```sh
 $ curl -i -X PUT "Content-Type:application/json" http://localhost:3000/widgets/{id} -d '{"name":"teste","color":"magenta","price":"3.80","inventory":23,"melts":true}' -H 'Authorization: Bearer API_TOKEN'
+```
 
 #DELETE WIDGET
-
+```sh
 curl -i -X DELETE "Content-Type:application/json" http://localhost:3000/widgets/{id} -H 'Authorization: Bearer API_TOKEN'
+```
