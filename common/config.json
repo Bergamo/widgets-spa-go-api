@@ -1,0 +1,7 @@
+{
+  "Server"      : "localhost:3000",
+  "MongoDBHost" : "127.0.0.1",
+  "MongoDBUser"	: "",
+  "MongoDBPwd"	: "",
+  "Database"    : "widgets-spa-go-api"
+}

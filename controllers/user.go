@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-
 	"github.com/Bergamo/widgets-spa-go-api/models"
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2"

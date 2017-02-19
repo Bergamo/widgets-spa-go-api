@@ -3,9 +3,11 @@ package controllers
 import (
 	"net/http"
 	"time"
-
 	jwt "github.com/dgrijalva/jwt-go"
+	"fmt"
+	request "github.com/dgrijalva/jwt-go/request"
 )
+
 
 type (
 	// TokenController represents the controller for operating on the Token resource
@@ -14,9 +16,33 @@ type (
 	}
 )
 
+/* Set up a global string for our secret */
+var mySigningKey = []byte("secret")
+
 // NewTokenController provides a reference to a TokenController
-func NewTokenController(mySigningKey []byte) *TokenController {
+func NewTokenController() *TokenController {
 	return &TokenController{mySigningKey}
+}
+
+// GetTokenHandler retrieves a token
+func (tokenController TokenController) ValidateTokenHandler(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+
+	token, err := request.ParseFromRequest(r, request.AuthorizationHeaderExtractor,
+		func(token *jwt.Token) (interface{}, error) {
+			return tokenController.mySigningKey, nil
+		})
+
+	if err == nil {
+		if token.Valid {
+			next(w, r)
+		} else {
+			w.WriteHeader(http.StatusUnauthorized)
+			fmt.Fprint(w, "Token is not valid")
+		}
+	} else {
+		w.WriteHeader(http.StatusUnauthorized)
+		fmt.Fprint(w, "Unauthorized access to this resource")
+	}
 }
 
 // GetTokenHandler retrieves a token

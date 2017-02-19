@@ -6,14 +6,11 @@ import (
 	"github.com/gorilla/mux"
 )
 
-/* Set up a global string for our secret */
-var mySigningKey = []byte("secret")
-
 // SetTokenRoutes set user routes
 func SetTokenRoutes(router *mux.Router) *mux.Router {
 
 	// Get a UserController instance
-	tokenController := controllers.NewTokenController(mySigningKey)
+	tokenController := controllers.NewTokenController()
 
 	router.Handle("/get-token",
 		negroni.New(
