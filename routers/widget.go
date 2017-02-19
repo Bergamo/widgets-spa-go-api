@@ -16,7 +16,7 @@ func SetWidgetRoutes(router *mux.Router) *mux.Router {
 
 	router.Handle("/widgets",
 		negroni.New(
-			//negroni.HandlerFunc(tokenController.ValidateTokenHandler),
+			negroni.HandlerFunc(tokenController.ValidateTokenHandler),
 			negroni.HandlerFunc(widgetController.GetWidgets),
 		)).Methods("GET")
 
