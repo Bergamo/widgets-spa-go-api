@@ -1,10 +1,10 @@
 package routers
 
 import (
+	"github.com/Bergamo/widgets-spa-go-api/common"
 	"github.com/Bergamo/widgets-spa-go-api/controllers"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/Bergamo/widgets-spa-go-api/common"
 )
 
 // SetWidgetRoutes set user routes

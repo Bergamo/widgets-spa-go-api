@@ -1,10 +1,10 @@
 package routers
 
 import (
+	"github.com/Bergamo/widgets-spa-go-api/common"
 	"github.com/Bergamo/widgets-spa-go-api/controllers"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
-	"github.com/Bergamo/widgets-spa-go-api/common"
 )
 
 // SetUserRoutes set user routes
@@ -21,7 +21,7 @@ func SetUserRoutes(router *mux.Router) *mux.Router {
 
 	router.Handle("/users",
 		negroni.New(
-			//negroni.HandlerFunc(tokenController.ValidateTokenHandler),
+			negroni.HandlerFunc(tokenController.ValidateTokenHandler),
 			negroni.HandlerFunc(userController.GetUsers),
 		)).Methods("GET")
 

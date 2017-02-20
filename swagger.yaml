@@ -1,0 +1,126 @@
+swagger: '2.0'
+info:
+  version: "1.0.0"
+  title: widgets-spa-go-api
+produces:
+  - application/json
+parameters:
+  user-id:
+    name: id
+    in: path
+    description: id of user
+    type: string
+    required: true
+  widget-id:
+    name: id
+    in: path
+    description: id of widget
+    type: string
+    required: true
+paths:
+  /users:
+    get:
+      summary: Get all users.
+      responses:
+        '200':
+         description: Successful response
+         schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+  /users/{id}:
+    get:
+      summary: Get a user by id.
+      parameters:
+        - $ref: '#/parameters/user-id'
+      responses:
+        '200':
+         description: 'Successful response'
+         schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+  /widgets:
+    get:
+      summary: Get all widgets.
+      responses:
+        '200':
+         description: 'Successful response'
+         schema:
+            type: array
+            items:
+              $ref: '#/definitions/Widget'
+    post:
+      summary: Create new widget.
+      consumes: 
+        - application/json
+      produces:
+         - application/json
+      parameters:
+        - in: body
+          name: widget
+          required: true
+          schema:
+            $ref: '#/definitions/Widget'
+      responses:
+        '201':
+         description: 'Successful response'
+         schema:
+            type: array
+            items:
+              $ref: '#/definitions/Widget'
+  /widgets/{id}:
+    get:
+      summary:  Get a widget by id.
+      parameters:
+        - $ref: '#/parameters/widget-id'
+      responses:
+        '200':
+         description: 'Successful response'
+         schema:
+            type: array
+            items:
+              $ref: '#/definitions/User'
+    put:
+      summary:  Update a widget by id.
+      parameters:
+        - $ref: '#/parameters/widget-id'
+      responses:
+        '200':
+          description: 'Successful response'
+    delete:
+      summary:  Delete a widget by id.
+      parameters:
+        - $ref: '#/parameters/widget-id'
+      responses:
+        '200':
+          description: 'Successful response'
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+        readOnly: true
+      name:
+        type: string
+      gravatar:
+        type: string
+  Widget:
+    type: object
+    properties:
+      id:
+        type: string
+        readOnly: true
+      name:
+        type: string
+      color:
+        type: string
+      price:
+        type: string
+      inventory:
+        type: integer
+        format: int32
+      melts:
+         type: boolean
+  
