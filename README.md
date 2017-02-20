@@ -14,8 +14,17 @@ $ go get ./...
 - Build and run the application (change directory into the project)
 ```sh
 $ go build
-$ ./widgets-spa-go-api or go run server.go
 ```
+- Run the application (Make sure the mongo is running)
+- OSX and Linux
+```sh
+$ ./widgets-spa-go-api
+```
+- Windows
+```sh
+$ go run server.go
+```
+
 - The app will start at port 3000
 
 # The endpoints are as follows:
