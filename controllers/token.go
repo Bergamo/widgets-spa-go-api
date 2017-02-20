@@ -24,7 +24,7 @@ func NewTokenController() *TokenController {
 	return &TokenController{mySigningKey}
 }
 
-// GetTokenHandler retrieves a token
+// ValidateTokenHandler validate token from request
 func (tokenController TokenController) ValidateTokenHandler(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
 
 	token, err := request.ParseFromRequest(r, request.AuthorizationHeaderExtractor,

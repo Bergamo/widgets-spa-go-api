@@ -14,7 +14,7 @@ $ go get ./...
 - Build and run the application (change directory into the project)
 ```sh
 $ go build
-$ ./widgets-spa-go-api
+$ ./widgets-spa-go-api or go run server.go
 ```
 - The app will start at port 3000
 
