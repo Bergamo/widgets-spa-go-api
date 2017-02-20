@@ -2,7 +2,6 @@ package models
 
 import "gopkg.in/mgo.v2/bson"
 
-//Struct
 type (
 	// User structure
 	User struct {
