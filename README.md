@@ -1,13 +1,16 @@
 # widgets-spa-go-api
-Simple REST API app with Go and MongoDB
+RESTful API with Golang and MongoDB and Authentication with  JSON Web Tokens.
 
 # Dependencies
 - go^1.8
 - MongoDB^3.4.2
 
+# Install the Go tools
+- To install go tools visit : https://golang.org/doc/install
+
 # Instructions
 - Clone the repository inside the go workspace
-- Install project dependencies (To install all dependencies of a Golang project or golang projects recursively with the go getcommand, change directory into the project and simply run:):
+- Install project dependencies (To install all dependencies of  project change directory into the project and run) :
 ```sh
 $ go get ./...
 ```
