@@ -99,9 +99,6 @@ definitions:
   User:
     type: object
     properties:
-      id:
-        type: string
-        readOnly: true
       name:
         type: string
       gravatar:
@@ -109,9 +106,6 @@ definitions:
   Widget:
     type: object
     properties:
-      id:
-        type: string
-        readOnly: true
       name:
         type: string
       color:

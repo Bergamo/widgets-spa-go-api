@@ -2,8 +2,8 @@
 Simple REST API app with Go and MongoDB
 
 # Dependencies
-- go 1.8
-- MongoDB
+- go^1.8
+- MongoDB^3.4.2
 
 # Instructions
 - Clone the repository inside the go workspace
