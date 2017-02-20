@@ -17,7 +17,7 @@ $ go build
 ```
 - Run the application (Make sure the mongo is running)
 
-#### OSX and Linux
+#### MacOS and Linux
 ```sh
 $ ./widgets-spa-go-api
 ```
