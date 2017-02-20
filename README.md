@@ -16,11 +16,11 @@ $ go get ./...
 $ go build
 ```
 - Run the application (Make sure the mongo is running)
-- OSX and Linux
+#### OSX and Linux
 ```sh
 $ ./widgets-spa-go-api
 ```
-- Windows
+#### Windows
 ```sh
 $ go run server.go
 ```
