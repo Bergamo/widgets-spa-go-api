@@ -9,16 +9,16 @@ RESTful API with Golang and MongoDB and Authentication with  JSON Web Tokens.
 - To install go tools visit : https://golang.org/doc/install
 
 # Instructions
-- Clone the repository inside the your go workspace (example: work/src/github.com/Bergamo/)
+- Clone the repository inside your go workspace (example: work/src/github.com/Bergamo/)
 - Change directory into the project and Install project dependencies
 ```sh
 $ go get ./...
 ```
-- Build and run the application
+- Build the application
 ```sh
 $ go build
 ```
-- Run the application (Make sure the mongo is running)
+- Run the application (Make sure the mongodb is running)
 
 ### MacOS and Linux
 ```sh
@@ -30,6 +30,10 @@ $ go run server.go
 ```
 
 - The app will start at port 3000
+
+# Observations
+
+- To change port of server or mongodb edit the config.json inside the common folder.
 
 # The endpoints are as follows:
 
