@@ -1,21 +1,23 @@
 package common
 
 import (
+	"log"
+
 	"gopkg.in/mgo.v2"
 )
 
 var session *mgo.Session
 
+// GetSession of mongo
 func GetSession() *mgo.Session {
 
 	if session == nil {
 
 		var err error
 		session, err = mgo.Dial(AppConfig.MongoDBHost)
-		
-		// Check if connection error, is mongo running?
+
 		if err != nil {
-			panic(err)
+			log.Fatalf("[GetSession]: %s\n", err)
 		}
 	}
 
