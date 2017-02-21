@@ -33,7 +33,7 @@ $ go run server.go
 
 # Observations
 
-- To change port of server or mongodb edit the config.json inside the common folder.
+- To change port of server edit the config.json inside the common folder.
 
 # The endpoints are as follows:
 
