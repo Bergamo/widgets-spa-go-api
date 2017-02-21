@@ -45,6 +45,16 @@ $ go run server.go
 - POST /widgets for creating new widgets http://localhost:3000/widgets
 - PUT /widgets/:id for updating existing widgets http://localhost:3000/widgets/:id
 
+# Live Demo:
+
+- GET /get-token http://gabrielbergamo.com.br:8080/get-token
+- GET /users http://gabrielbergamo.com.br:8080/users
+- GET /users/:id http://gabrielbergamo.com.br:8080/users/:id
+- GET /widgets http://gabrielbergamo.com.br:8080/widgets
+- GET /widgets/:id http://gabrielbergamo.com.br:8080/widgets/:id
+- POST /widgets for creating new widgets http://gabrielbergamo.com.br:8080/widgets
+- PUT /widgets/:id for updating existing widgets http://gabrielbergamo.com.br:8080/:id
+
 # API Tests
 
 ## GET TOKEN
