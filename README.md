@@ -109,3 +109,5 @@ $ curl -i -X PUT "Content-Type:application/json" http://localhost:3000/widgets/:
 ```sh
 $ curl -i -X DELETE "Content-Type:application/json" http://localhost:3000/widgets/:id -H 'Authorization: Bearer API_TOKEN'
 ```
+
+# Thanks!
