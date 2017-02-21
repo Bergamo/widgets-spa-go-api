@@ -1,9 +1,11 @@
 package main
 
 import (
+	"log"
 	"net/http"
-	"github.com/Bergamo/widgets-spa-go-api/routers"
+
 	"github.com/Bergamo/widgets-spa-go-api/common"
+	"github.com/Bergamo/widgets-spa-go-api/routers"
 	"github.com/codegangsta/negroni"
 )
 
@@ -14,6 +16,5 @@ func main() {
 	n := negroni.Classic()
 	n.UseHandler(router)
 	http.ListenAndServe(common.AppConfig.Server, n)
+	log.Println("Listening...")
 }
-
-
