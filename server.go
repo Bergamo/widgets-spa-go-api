@@ -15,6 +15,6 @@ func main() {
 	router := routers.InitRoutes()
 	n := negroni.Classic()
 	n.UseHandler(router)
-	log.Println("Listening...")
+	log.Printf("Listening on : %s\n", common.AppConfig.Server)
 	http.ListenAndServe(common.AppConfig.Server, n)
 }

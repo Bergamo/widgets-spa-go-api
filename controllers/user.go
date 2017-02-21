@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"github.com/Bergamo/widgets-spa-go-api/models"
+
 	"github.com/Bergamo/widgets-spa-go-api/common"
+	"github.com/Bergamo/widgets-spa-go-api/models"
 	"github.com/gorilla/mux"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
@@ -25,7 +26,7 @@ func NewUserController(session *mgo.Session) *UserController {
 
 // Index retrieves a default response
 func (userController UserController) Index(w http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	w.Write([]byte("Hello, World!"))
+	w.Write([]byte("API is Working!"))
 }
 
 // GetUsers retrieves users
