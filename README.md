@@ -9,12 +9,12 @@ RESTful API with Golang and MongoDB and Authentication with  JSON Web Tokens.
 - To install go tools visit : https://golang.org/doc/install
 
 # Instructions
-- Clone the repository inside the go workspace
-- Install project dependencies (To install all dependencies of  project change directory into the project and run) :
+- Clone the repository inside the your go workspace (example: work/src/github.com/Bergamo/)
+- Change directory into the project and Install project dependencies
 ```sh
 $ go get ./...
 ```
-- Build and run the application (change directory into the project)
+- Build and run the application
 ```sh
 $ go build
 ```
